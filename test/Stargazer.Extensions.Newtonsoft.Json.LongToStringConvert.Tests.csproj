@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Stargazer.Extensions.Newtonsoft.Json.LongToStringConvert\Stargazer.Extensions.Newtonsoft.Json.LongToStringConvert.csproj" />
+    <ProjectReference Include="..\src\Stargazer.Extensions.Newtonsoft.Json.LongToStringConvert.csproj" />
   </ItemGroup>
 
 </Project>
