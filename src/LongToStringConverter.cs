@@ -8,17 +8,17 @@ namespace Stargazer.Extensions.Newtonsoft.Json.LongToStringConvert
     {
         public override bool CanConvert(Type objectType)
         {
-            return objectType == typeof(long);
+            return objectType == typeof(long) || objectType == typeof(long?);
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
         {
             return JToken.ReadFrom(reader).Value<long>();
         }
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
         {
-            writer.WriteValue(value.ToString());
+            writer.WriteValue(value?.ToString());
         }
     }
 }
