@@ -11,9 +11,12 @@ namespace Stargazer.Extensions.Newtonsoft.Json.LongToStringConvert
             return objectType == typeof(long) || objectType == typeof(long?);
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
+        public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
         {
-            return JToken.ReadFrom(reader).Value<long>();
+            if(objectType == typeof(long))
+                return JToken.ReadFrom(reader).Value<long>();
+            else
+                return JToken.ReadFrom(reader).Value<long?>();
         }
 
         public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
